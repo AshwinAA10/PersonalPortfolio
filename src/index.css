@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-syne: "Syne", sans-serif;
+
+  --color-dark-bg: #03030c;
+  --color-cyber-cyan: #00f2fe;
+  --color-cyber-purple: #7f00ff;
+  --color-electric-blue: #00d2ff;
+  --color-accent-pink: #ff007f;
+}
+
+@layer utilities {
+  .glow-border {
+    position: relative;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glow-border:hover {
+    border-color: rgba(0, 242, 254, 0.4);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.15);
+  }
+
+  .glow-purple {
+    border-color: rgba(127, 0, 255, 0.4);
+    box-shadow: 0 0 25px rgba(127, 0, 255, 0.15);
+  }
+
+  .cyber-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+  }
+
+  .blur-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+    transition: all 0.5s ease;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #03030c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  border: 2px solid #03030c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 254, 0.5);
+}
+
+/* Reset and Layout */
+html {
+  scroll-behavior: smooth;
+  background-color: #03030c;
+  color: #ffffff;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+#root {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border-inline: none;
+}
+
+/* Hover Physics for Custom Cursor interactive states */
+.cursor-hovered {
+  mix-blend-mode: difference;
+}
+
+/* Orbit Path Custom animations for Skills */
+@keyframes orbit-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-ccw {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.orbit-rotate-cw {
+  animation: orbit-cw 40s linear infinite;
+}
+
+.orbit-rotate-ccw {
+  animation: orbit-ccw 30s linear infinite;
+}
+
+.orbit-rotate-cw-fast {
+  animation: orbit-cw 20s linear infinite;
+}
