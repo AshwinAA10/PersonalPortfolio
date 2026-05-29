@@ -44,8 +44,7 @@ export const Projects: React.FC = () => {
         'Custom alerts triggered on critical threshold items',
         'Granular user permissions for managers and warehouse crew'
       ],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+      github: 'https://github.com/AshwinAA10/StoreMind---Inventory-Management-System',
       renderMockup: () => (
         <div className="w-full h-full bg-[#050512] flex flex-col justify-between p-4 font-mono text-[9px] text-white/50 border border-white/5 rounded-xl">
           <div className="flex items-center justify-between border-b border-white/5 pb-2">
@@ -89,8 +88,7 @@ export const Projects: React.FC = () => {
         'Responsive layout scaling for multiple monitor profiles',
         'Optimized component lazy-loading for fast page loads'
       ],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+      github: 'https://github.com/AshwinAA10/World-of-Surya',
       renderMockup: () => (
         <div className="w-full h-full bg-gradient-to-t from-[#020208] to-[#0d0a21] flex flex-col justify-between p-4 rounded-xl border border-white/5 relative overflow-hidden">
           <div className="absolute top-2 right-2 px-2 py-0.5 rounded bg-cyber-purple/20 text-cyber-purple border border-cyber-purple/30 text-[8px] font-mono font-bold">OTT_UI</div>
@@ -123,7 +121,6 @@ export const Projects: React.FC = () => {
         'Citation graph visualizer detailing linking structures',
         'Automated XML Sitemap structure engine for index submission'
       ],
-      github: 'https://github.com',
       renderMockup: () => (
         <div className="w-full h-full bg-[#03030c] flex flex-col justify-between p-4 font-mono text-[9px] text-white/50 border border-white/5 rounded-xl">
           <div className="flex items-center justify-between border-b border-white/5 pb-2">
@@ -164,8 +161,6 @@ export const Projects: React.FC = () => {
         'Object nesting, locking, and layered depth management',
         'High resolution export formats including raw JSON configurations'
       ],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
       renderMockup: () => (
         <div className="w-full h-full bg-[#04090b] flex flex-col justify-between p-4 font-mono text-[9px] text-white/50 border border-white/5 rounded-xl relative overflow-hidden">
           {/* Cyber drafting grids */}
