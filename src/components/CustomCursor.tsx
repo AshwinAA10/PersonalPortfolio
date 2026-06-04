@@ -55,12 +55,11 @@ export const CustomCursor: React.FC = () => {
         target.closest('[role="button"]') ||
         target.closest('[data-cursor="interactive"]') ||
         target.classList.contains('cursor-pointer')
-
       if (isInteractive) {
         isHovering = true
-        ring.style.borderColor = 'rgba(0, 242, 254, 0.8)'
-        ring.style.backgroundColor = 'rgba(0, 242, 254, 0.1)'
-        dot.style.backgroundColor = '#00f2fe'
+        ring.style.borderColor = 'rgba(255, 255, 255, 0.6)'
+        ring.style.backgroundColor = 'rgba(255, 255, 255, 0.08)'
+        dot.style.backgroundColor = '#ffffff'
       }
     }
 

@@ -56,7 +56,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, y: -50 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#03030c] font-display selection:bg-transparent"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black font-display selection:bg-transparent"
         >
           {/* Noise / grid backdrop */}
           <div className="absolute inset-0 noise-overlay opacity-[0.03] pointer-events-none" />
@@ -68,7 +68,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
                 <span className="w-1.5 h-1.5 bg-cyber-cyan rounded-full animate-ping" />
                 SYSTEM RUNTIME
               </span>
-              <span>v4.0.9_REACT</span>
+              <span>v1.0.0_PROD</span>
             </div>
 
             {/* Main Progress Indicator */}

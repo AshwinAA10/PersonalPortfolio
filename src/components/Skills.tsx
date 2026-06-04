@@ -14,58 +14,67 @@ interface SkillCategory {
   skills: Skill[]
   color: string
 }
-
 const skillCategories: SkillCategory[] = [
   {
-    title: 'Frontend Systems',
-    icon: <Layout className="w-4 h-4" />,
-    color: '#00f2fe',
+    title: 'Frontend',
+    icon: <Layout className="w-4.5 h-4.5" />,
+    color: '#3b82f6',
     skills: [
-      { name: 'React', level: 'Advanced', desc: 'State architecture, hooks, rendering optimizations' },
-      { name: 'TypeScript', level: 'Intermediate-Advanced', desc: 'Strict typing, interface contracts, generic typing' },
-      { name: 'JavaScript', level: 'Advanced', desc: 'ES6+ standards, closures, asynchronous event handling' },
-      { name: 'HTML & CSS', level: 'Advanced', desc: 'Semantic layouts, Flexbox/Grid, Tailwind design' }
+      { name: 'HTML', level: 'Advanced', desc: 'Semantic layout structure, accessibility standards, SEO tags' },
+      { name: 'CSS', level: 'Advanced', desc: 'Flexbox, CSS Grid systems, custom properties, styling layouts' },
+      { name: 'JavaScript', level: 'Advanced', desc: 'ES6+ standards, closures, async/await, DOM APIs' },
+      { name: 'React', level: 'Advanced', desc: 'Virtual DOM, custom hooks, state stores, performance optimization' }
     ]
   },
   {
-    title: 'Backend & Databases',
-    icon: <Database className="w-4 h-4" />,
-    color: '#7f00ff',
+    title: 'Backend',
+    icon: <Database className="w-4.5 h-4.5" />,
+    color: '#6366f1',
     skills: [
-      { name: 'Node.js', level: 'Advanced', desc: 'Event-driven server runtime, stream processing, performance tuning' },
-      { name: 'Express.js', level: 'Advanced', desc: 'RESTful API architectures, custom middleware validation' },
-      { name: 'MongoDB', level: 'Advanced', desc: 'Aggregation pipelines, schema indexing, document storage' },
-      { name: 'SQL', level: 'Intermediate', desc: 'Relational query design, indexing, structural normalizations' }
+      { name: 'Node.js', level: 'Advanced', desc: 'Event-driven server engines, NPM system registry, script automation' },
+      { name: 'Express.js', level: 'Advanced', desc: 'API routing shell, validation systems, custom middleware pipelines' }
     ]
   },
   {
-    title: 'Languages',
-    icon: <Code className="w-4 h-4" />,
-    color: '#00d2ff',
+    title: 'Database',
+    icon: <Settings className="w-4.5 h-4.5" />,
+    color: '#60a5fa',
     skills: [
-      { name: 'Python', level: 'Intermediate', desc: 'Automation scripting, SEO indexing, file parsing' },
-      { name: 'Java', level: 'Intermediate', desc: 'Object-Oriented Programming, algorithm optimization, structural compilation' },
-      { name: 'SQL', level: 'Intermediate', desc: 'Database querying and schema design' }
+      { name: 'MongoDB', level: 'Advanced', desc: 'NoSQL collections, document indexing, aggregation pipelines' },
+      { name: 'SQL', level: 'Intermediate', desc: 'Relational design tables, query optimization, join execution' }
     ]
   },
   {
-    title: 'Design & Tooling',
-    icon: <Settings className="w-4 h-4" />,
-    color: '#ff007f',
+    title: 'Programming',
+    icon: <Code className="w-4.5 h-4.5" />,
+    color: '#a855f7',
     skills: [
-      { name: 'Figma', level: 'Advanced', desc: 'Design systems, auto-layouts, micro-prototypes' },
-      { name: 'Git & GitHub', level: 'Advanced', desc: 'Branching pipelines, commit standards, automation hooks' }
+      { name: 'C', level: 'Intermediate', desc: 'Structured programming, procedural algorithms, logic execution' },
+      { name: 'C++', level: 'Intermediate', desc: 'Object-oriented specifications, templates, memory management' },
+      { name: 'Python', level: 'Advanced', desc: 'Data parsing structures, scripting pipelines, backend microservices' },
+      { name: 'Java', level: 'Intermediate', desc: 'Compilation cycles, OOP paradigms, modular app structures' }
+    ]
+  },
+  {
+    title: 'Tools',
+    icon: <Compass className="w-4.5 h-4.5" />,
+    color: '#10b981',
+    skills: [
+      { name: 'Git', level: 'Advanced', desc: 'Version logging, branch mergers, commit specifications' },
+      { name: 'GitHub', level: 'Advanced', desc: 'Repository management, PR collaboration, actions workflows' },
+      { name: 'VS Code', level: 'Advanced', desc: 'Local work staging, debug interfaces, workspace extensions' },
+      { name: 'Figma', level: 'Advanced', desc: 'Prototyping, visual balance grids, layout UI blueprints' }
     ]
   }
 ]
 
 // Skills list for Orbit Visualization
 const orbitalSkills = [
-  { name: 'React', color: '#00f2fe', angle: 0 },
-  { name: 'Node', color: '#7f00ff', angle: 72 },
-  { name: 'TS', color: '#00d2ff', angle: 144 },
-  { name: 'Figma', color: '#ff007f', angle: 216 },
-  { name: 'Mongo', color: '#10b981', angle: 288 }
+  { name: 'React', color: '#3b82f6', angle: 0 },
+  { name: 'Node', color: '#6366f1', angle: 72 },
+  { name: 'Python', color: '#a855f7', angle: 144 },
+  { name: 'SQL', color: '#60a5fa', angle: 216 },
+  { name: 'Figma', color: '#10b981', angle: 288 }
 ]
 
 export const Skills: React.FC = () => {
@@ -81,6 +90,39 @@ export const Skills: React.FC = () => {
         <h3 className="text-xs font-mono uppercase tracking-[0.35em] text-cyber-cyan">02 // CAPABILITIES</h3>
         <h2 className="text-3xl md:text-5xl font-extrabold font-syne tracking-tight">The Tech Stack</h2>
         <div className="h-[1px] w-20 bg-gradient-to-r from-cyber-cyan to-transparent" />
+      </div>
+
+      {/* Featured Skills Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 relative z-10">
+        <div className="fallable p-6 bg-white/[0.01] hover:bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col justify-between space-y-4 hover:border-cyber-cyan/30 transition-all duration-300">
+          <div className="space-y-1">
+            <span className="text-[9px] font-mono text-cyber-cyan bg-cyber-cyan/10 px-2 py-0.5 rounded border border-cyber-cyan/20">CORE STACK</span>
+            <h3 className="text-base font-bold text-white font-display pt-2">MERN Full-Stack</h3>
+          </div>
+          <p className="text-xs text-white/50 leading-relaxed font-sans">
+            Specializing in high-performance web applications using MongoDB, Express.js, React, and Node.js. Experienced in designing RESTful APIs, data validation, and clean state stores.
+          </p>
+        </div>
+
+        <div className="fallable p-6 bg-white/[0.01] hover:bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col justify-between space-y-4 hover:border-cyber-purple/30 transition-all duration-300">
+          <div className="space-y-1">
+            <span className="text-[9px] font-mono text-cyber-purple bg-cyber-purple/10 px-2 py-0.5 rounded border border-cyber-purple/20">EMERGING FOCUS</span>
+            <h3 className="text-base font-bold text-white font-display pt-2">AI Integrations</h3>
+          </div>
+          <p className="text-xs text-white/50 leading-relaxed font-sans">
+            Integrating Large Language Model APIs, custom vector embeddings, and agentic workflows to build interactive chatbots and context-aware backend assistance utilities.
+          </p>
+        </div>
+
+        <div className="fallable p-6 bg-white/[0.01] hover:bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col justify-between space-y-4 hover:border-emerald-500/30 transition-all duration-300">
+          <div className="space-y-1">
+            <span className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">ALGORITHMS</span>
+            <h3 className="text-base font-bold text-white font-display pt-2">Computer Science Core</h3>
+          </div>
+          <p className="text-xs text-white/50 leading-relaxed font-sans">
+            Solid understanding of data structures, search algorithms (Dijkstra, A*), relational schema normalization, and writing clean, optimized systems automation scripts.
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -121,7 +163,7 @@ export const Skills: React.FC = () => {
                   data-cursor="interactive"
                 >
                   <div 
-                    className="w-14 h-14 rounded-full flex items-center justify-center font-mono text-[10px] font-bold tracking-tight bg-[#03030c] border transition-all duration-300 shadow-xl"
+                    className="w-14 h-14 rounded-full flex items-center justify-center font-mono text-[10px] font-bold tracking-tight bg-[#09090b] border transition-all duration-300 shadow-xl"
                     style={{ 
                       borderColor: hoveredOrbital === skill.name ? skill.color : 'rgba(255,255,255,0.1)',
                       boxShadow: hoveredOrbital === skill.name ? `0 0 15px ${skill.color}50` : 'none'
@@ -142,7 +184,7 @@ export const Skills: React.FC = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="text-xs font-mono text-cyber-cyan tracking-widest uppercase bg-[#03030c]/80 border border-cyber-cyan/20 px-3 py-1 rounded-md"
+                    className="text-xs font-mono text-cyber-cyan tracking-widest uppercase bg-[#09090b]/80 border border-cyber-cyan/20 px-3 py-1 rounded-md"
                   >
                     ⚡ STACK :: {hoveredOrbital}
                   </motion.p>
@@ -168,7 +210,7 @@ export const Skills: React.FC = () => {
             return (
               <div
                 key={category.title}
-                className="glow-border bg-white/[0.01] overflow-hidden"
+                className="fallable glow-border bg-white/[0.01] overflow-hidden"
               >
                 {/* Category Header */}
                 <button
@@ -219,7 +261,7 @@ export const Skills: React.FC = () => {
                         {category.skills.map((skill) => (
                           <div 
                             key={skill.name}
-                            className="p-3.5 bg-[#03030c]/40 border border-white/5 rounded-xl space-y-1.5 hover:border-white/10 transition-colors"
+                            className="p-3.5 bg-[#09090b]/40 border border-white/5 rounded-xl space-y-1.5 hover:border-white/10 transition-colors"
                           >
                             <div className="flex items-center justify-between">
                               <span className="text-xs font-bold text-white tracking-wide">{skill.name}</span>

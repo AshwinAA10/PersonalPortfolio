@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mail, Send, Terminal } from 'lucide-react'
+import { Mail, Send, Terminal, FileText } from 'lucide-react'
 
 const GithubIcon = () => (
   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -16,13 +16,6 @@ const LinkedinIcon = () => (
   </svg>
 )
 
-const InstagramIcon = () => (
-  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-  </svg>
-)
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -80,7 +73,7 @@ export const Contact: React.FC = () => {
     { name: 'Email', value: 'ashwinaa2005@gmail.com', icon: <Mail className="w-4 h-4" />, href: 'mailto:ashwinaa2005@gmail.com' },
     { name: 'LinkedIn', value: 'https://www.linkedin.com/in/ashwinaa10/', icon: <LinkedinIcon />, href: 'https://www.linkedin.com/in/ashwinaa10/' },
     { name: 'GitHub', value: 'https://github.com/AshwinAA10', icon: <GithubIcon />, href: 'https://github.com/AshwinAA10' },
-    { name: 'Instagram', value: '@ashwxn._._', icon: <InstagramIcon />, href: 'https://www.instagram.com/ashwxn._._/' }
+    { name: 'Resume', value: 'Download Ashwin_AA_Resume.pdf', icon: <FileText className="w-4 h-4" />, href: '/resume.pdf' }
   ]
 
   return (
@@ -112,7 +105,7 @@ export const Contact: React.FC = () => {
                 href={social.href}
                 target="_blank"
                 rel="noreferrer"
-                className="glow-border p-4 bg-white/[0.01] hover:bg-white/[0.02] flex items-center justify-between group transition-all"
+                className="fallable glow-border p-4 bg-white/[0.01] hover:bg-white/[0.02] flex items-center justify-between group transition-all"
                 data-cursor="interactive"
               >
                 <div className="flex items-center gap-3">
@@ -131,7 +124,7 @@ export const Contact: React.FC = () => {
         </div>
 
         {/* Right Column: Console Form */}
-        <div className="lg:col-span-7 bg-[#050512] glow-border p-6 relative overflow-hidden flex flex-col justify-between">
+        <div className="fallable lg:col-span-7 bg-[#050512] glow-border p-6 relative overflow-hidden flex flex-col justify-between">
           <div className="absolute top-0 right-0 w-32 h-32 bg-cyber-purple/5 blur-2xl rounded-full" />
           
           {/* Form Header */}

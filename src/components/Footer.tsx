@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
   }
 
   return (
-    <footer className="w-full border-t border-white/5 bg-[#03030c] py-10 px-6 font-display">
+    <footer className="w-full border-t border-white/5 bg-[#09090b] py-10 px-6 font-display">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Brand Copyright */}

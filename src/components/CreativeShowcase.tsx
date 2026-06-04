@@ -47,7 +47,7 @@ export const CreativeShowcase: React.FC = () => {
           </div>
 
           {/* Widget 2: Glass Control Center Panel */}
-          <div className="bg-[#03030c]/40 border border-white/10 backdrop-blur-md p-3.5 rounded-xl text-left space-y-2.5 z-10 max-w-[200px] shadow-lg">
+          <div className="bg-[#09090b]/40 border border-white/10 backdrop-blur-md p-3.5 rounded-xl text-left space-y-2.5 z-10 max-w-[200px] shadow-lg">
             <p className="text-[8px] font-mono text-cyber-cyan tracking-wider">AURA AUDIO CONTROL</p>
             <div className="flex gap-2 items-center">
               <span className="w-5 h-5 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/20 flex items-center justify-center text-[9px] text-cyber-cyan">◀</span>
@@ -188,15 +188,15 @@ export const CreativeShowcase: React.FC = () => {
                 onClick={() => setActiveTab(concept.id)}
                 className="w-full flex items-center justify-between p-4 bg-white/[0.01] hover:bg-white/[0.02] border border-white/5 hover:border-white/10 rounded-xl transition-all"
                 style={{ 
-                  borderColor: activeTab === concept.id ? 'rgba(0, 242, 254, 0.4)' : 'rgba(255,255,255,0.05)',
-                  boxShadow: activeTab === concept.id ? '0 0 15px rgba(0, 242, 254, 0.08)' : 'none'
+                  borderColor: activeTab === concept.id ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255,255,255,0.05)',
+                  boxShadow: activeTab === concept.id ? '0 8px 20px rgba(0, 0, 0, 0.4)' : 'none'
                 }}
                 data-cursor="interactive"
               >
                 <div className="flex items-center gap-3">
                   <span 
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: activeTab === concept.id ? '#00f2fe' : 'rgba(255,255,255,0.2)' }}
+                    className="w-2 h-2 rounded-full animate-pulse"
+                    style={{ backgroundColor: activeTab === concept.id ? '#ffffff' : 'rgba(255,255,255,0.2)' }}
                   />
                   <div className="text-left">
                     <p className="text-xs font-bold text-white leading-normal">{concept.title}</p>
