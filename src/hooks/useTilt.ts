@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 
-export const useTilt = (maxRotate = 10) => {
-  const ref = useRef<HTMLElement | null>(null)
+export const useTilt = <T extends HTMLElement = HTMLElement>(maxRotate = 10) => {
+  const ref = useRef<T | null>(null)
 
   useEffect(() => {
     const el = ref.current
@@ -35,5 +35,5 @@ export const useTilt = (maxRotate = 10) => {
     }
   }, [maxRotate])
 
-  return ref as React.RefObject<any>
+  return ref
 }

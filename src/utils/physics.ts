@@ -8,7 +8,8 @@ function playThumpSound(velocity: number) {
   
   try {
     if (!audioCtx) {
-      audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)()
+      const AudioContextClass = window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
+      audioCtx = new AudioContextClass()
     }
     
     if (audioCtx.state === 'suspended') {
@@ -32,9 +33,9 @@ function playThumpSound(velocity: number) {
     
     osc.start()
     osc.stop(audioCtx.currentTime + 0.1)
-  } catch (e) {
-    // Fail silently if audio context is blocked
-  }
+    } catch {
+      // Fail silently if audio context is blocked
+    }
 }
 
 // Matter.js Module Aliases
@@ -132,7 +133,7 @@ export function initPhysics() {
     mouse: mouse,
     constraint: {
       stiffness: 0.2,
-      render: { visible: false } as any
+      render: { visible: false } as Matter.IConstraintRenderDefinition
     }
   })
   Composite.add(engine!.world, mouseConstraint)

@@ -24,7 +24,7 @@ export const Testimonials: React.FC = () => {
     {
       quote: "Ashwin combines solid computer science foundations with excellent full stack implementation skills. His independent projects, particularly MediAlert and the Pathfinding Visualizer, showcase a disciplined approach to structured coding and user experience design.",
       author: "Prof. A. Jeevarathinam",
-      role: "Assisstant Professor",
+      role: "Assistant Professor",
       company: "Sri Krishna Arts and Science College",
       avatarLetter: "J",
       color: "from-indigo-500/10 to-purple-500/10 border-indigo-500/20 text-indigo-400"

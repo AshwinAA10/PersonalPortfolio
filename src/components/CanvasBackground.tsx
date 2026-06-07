@@ -102,14 +102,14 @@ export const CanvasBackground: React.FC = () => {
       const height = canvas.height
 
       // Fixed top-left subtle ambient blue glow
-      let grad1 = ctx.createRadialGradient(width * 0.2, height * 0.2, 0, width * 0.2, height * 0.2, width * 0.5)
+      const grad1 = ctx.createRadialGradient(width * 0.2, height * 0.2, 0, width * 0.2, height * 0.2, width * 0.5)
       grad1.addColorStop(0, 'rgba(59, 130, 246, 0.02)')
       grad1.addColorStop(1, 'rgba(0, 0, 0, 0)')
       ctx.fillStyle = grad1
       ctx.fillRect(0, 0, width, height)
 
       // Fixed bottom-right subtle ambient indigo glow
-      let grad2 = ctx.createRadialGradient(width * 0.8, height * 0.8, 0, width * 0.8, height * 0.8, width * 0.5)
+      const grad2 = ctx.createRadialGradient(width * 0.8, height * 0.8, 0, width * 0.8, height * 0.8, width * 0.5)
       grad2.addColorStop(0, 'rgba(99, 102, 241, 0.02)')
       grad2.addColorStop(1, 'rgba(0, 0, 0, 0)')
       ctx.fillStyle = grad2
@@ -117,7 +117,7 @@ export const CanvasBackground: React.FC = () => {
 
       // Mouse-following highlight
       if (mouse.active) {
-        let mouseGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 300)
+        const mouseGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 300)
         mouseGrad.addColorStop(0, 'rgba(255, 255, 255, 0.02)')
         mouseGrad.addColorStop(0.5, 'rgba(59, 130, 246, 0.005)')
         mouseGrad.addColorStop(1, 'rgba(0, 0, 0, 0)')

@@ -39,13 +39,14 @@ export const Experience: React.FC = () => {
       ]
     },
     {
-      role: 'ICT Learnathon Participant',
-      company: 'ICT Academy Hackathon Event',
-      date: 'FEBRUARY 2025',
-      desc: 'Participated in a 24-hour sprint developing custom web systems to optimize warehouse logistics routing.',
+      role: 'Full Stack Developer Intern',
+      company: 'Zenvlo',
+      date: 'MAY 2026 - PRESENT',
+      desc: 'Contributing to the development of Zenvlo, a modern web platform focused on delivering professional digital solutions and scalable web experiences.',
       bullets: [
-        'Engineered functional dashboard layouts under tight 24-hour constraints.',
-        'Validated interface features with direct developer feedback and user testing.'
+        'Developed responsive frontend interfaces and reusable UI components using modern web technologies.',
+        'Worked on backend integrations, feature implementation, and performance optimization.',
+        'Collaborated on product enhancements, deployment workflows, and overall user experience improvements.'
       ]
     }
   ]
@@ -53,7 +54,7 @@ export const Experience: React.FC = () => {
   const education: Education[] = [
     {
       degree: 'BSc in Computer Science',
-      school: 'Affiliated Academic Institution',
+      school: 'Sri Krishna Arts and Science College',
       date: '2023 - 2026',
       desc: 'Core computer science theories combined with hands-on labs. Focused on building standard algorithmic efficiency and relational database structures.',
       bullets: [
@@ -102,7 +103,7 @@ export const Experience: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
-        
+
         {/* Column A: Professional Experience */}
         <div className="space-y-8">
           <div className="flex items-center gap-3 mb-6 text-left">
@@ -130,7 +131,7 @@ export const Experience: React.FC = () => {
                   <span className="w-2 h-2 rounded-full bg-cyber-cyan animate-pulse" />
                 </span>
 
-                <div 
+                <div
                   className="fallable glow-border p-5 bg-white/[0.01] hover:bg-white/[0.02] space-y-3 relative overflow-hidden transition-all duration-300"
                   data-cursor="interactive"
                 >
@@ -189,7 +190,7 @@ export const Experience: React.FC = () => {
                     <span className="w-2 h-2 rounded-full bg-cyber-purple" />
                   </span>
 
-                  <div 
+                  <div
                     className="fallable glow-border p-5 bg-white/[0.01] hover:bg-white/[0.02] space-y-3 relative overflow-hidden transition-all duration-300"
                     data-cursor="interactive"
                   >

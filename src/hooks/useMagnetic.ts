@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 
-export const useMagnetic = (strength = 0.35) => {
-  const ref = useRef<HTMLElement | null>(null)
+export const useMagnetic = <T extends HTMLElement = HTMLElement>(strength = 0.35) => {
+  const ref = useRef<T | null>(null)
 
   useEffect(() => {
     const el = ref.current
@@ -33,5 +33,5 @@ export const useMagnetic = (strength = 0.35) => {
     }
   }, [strength])
 
-  return ref as React.RefObject<any>
+  return ref
 }

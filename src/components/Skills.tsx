@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Code, Database, Layout, Settings, Compass } from 'lucide-react'
 
@@ -80,6 +80,19 @@ const orbitalSkills = [
 export const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<number>(0)
   const [hoveredOrbital, setHoveredOrbital] = useState<string | null>(null)
+  const [radius, setRadius] = useState(110)
+
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 768px)')
+    const handleResize = () => {
+      setRadius(media.matches ? 130 : 110)
+    }
+    handleResize()
+    media.addEventListener('change', handleResize)
+    return () => media.removeEventListener('change', handleResize)
+  }, [])
+
+  const hoveredSkill = orbitalSkills.find((s) => s.name === hoveredOrbital)
 
   return (
     <section id="skills" className="py-24 px-6 relative max-w-6xl mx-auto">
@@ -144,7 +157,6 @@ export const Skills: React.FC = () => {
             {/* Floating Tech Nodes */}
             {orbitalSkills.map((skill) => {
               // Calculate positioning using basic trig values for clean circular distribution
-              const radius = 110 // distance from center in px
               const rad = (skill.angle * Math.PI) / 180
               const x = Math.cos(rad) * radius
               const y = Math.sin(rad) * radius
@@ -175,31 +187,67 @@ export const Skills: React.FC = () => {
               )
             })}
 
-            {/* Interactive Tooltip showing core strength details */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 h-10 w-full flex items-center justify-center text-center">
-              <AnimatePresence mode="wait">
-                {hoveredOrbital ? (
-                  <motion.p
-                    key={hoveredOrbital}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="text-xs font-mono text-cyber-cyan tracking-widest uppercase bg-[#09090b]/80 border border-cyber-cyan/20 px-3 py-1 rounded-md"
-                  >
-                    ⚡ STACK :: {hoveredOrbital}
-                  </motion.p>
-                ) : (
-                  <motion.p
-                    key="default"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.4 }}
-                    className="text-[9px] font-mono tracking-widest text-white/50 uppercase"
-                  >
-                    Hover nodes to analyze systems
-                  </motion.p>
+            {/* HUD Connector Lines Overlay */}
+            <svg 
+              viewBox="-220 -220 440 440" 
+              className="absolute inset-0 w-full h-full pointer-events-none z-10"
+            >
+              <AnimatePresence>
+                {hoveredOrbital && hoveredSkill && (
+                  <motion.line
+                    key={`line-${hoveredOrbital}`}
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: 0.6 }}
+                    exit={{ pathLength: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    x1={Math.cos((hoveredSkill.angle * Math.PI) / 180) * (radius + 28)}
+                    y1={Math.sin((hoveredSkill.angle * Math.PI) / 180) * (radius + 28)}
+                    x2={Math.cos((hoveredSkill.angle * Math.PI) / 180) * (radius + 45)}
+                    y2={Math.sin((hoveredSkill.angle * Math.PI) / 180) * (radius + 45)}
+                    stroke={hoveredSkill.color}
+                    strokeWidth="1.5"
+                    strokeDasharray="3, 3"
+                    style={{
+                      filter: `drop-shadow(0 0 4px ${hoveredSkill.color})`
+                    }}
+                  />
                 )}
               </AnimatePresence>
-            </div>
+            </svg>
+
+            {/* Dynamic Interactive Tooltip */}
+            <AnimatePresence>
+              {hoveredOrbital && hoveredSkill && (
+                <motion.div
+                  key="dynamic-tooltip"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    x: Math.cos((hoveredSkill.angle * Math.PI) / 180) * (radius + 60),
+                    y: Math.sin((hoveredSkill.angle * Math.PI) / 180) * (radius + 60)
+                  }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ type: 'spring', stiffness: 220, damping: 22 }}
+                  className="absolute pointer-events-none z-20"
+                  style={{
+                    left: '50%',
+                    top: '50%',
+                  }}
+                >
+                  <div 
+                    className="text-[10px] font-mono tracking-wider uppercase bg-[#09090b]/90 border px-3 py-1.5 rounded-lg shadow-2xl backdrop-blur-md -translate-x-1/2 -translate-y-1/2 transition-colors duration-300"
+                    style={{
+                      color: hoveredSkill.color,
+                      borderColor: `${hoveredSkill.color}40`,
+                      boxShadow: `0 8px 32px rgba(0, 0, 0, 0.5), 0 0 10px ${hoveredSkill.color}15`
+                    }}
+                  >
+                    ⚡ STACK :: {hoveredOrbital}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
 

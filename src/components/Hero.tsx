@@ -4,8 +4,8 @@ import { ArrowDown, Code2, Cpu, Globe, MapPin, Download } from 'lucide-react'
 import { useMagnetic } from '../hooks/useMagnetic'
 
 export const Hero: React.FC = () => {
-  const viewProjectsRef = useMagnetic(0.2)
-  const downloadResumeRef = useMagnetic(0.2)
+  const viewProjectsRef = useMagnetic<HTMLDivElement>(0.2)
+  const downloadResumeRef = useMagnetic<HTMLDivElement>(0.2)
 
   return (
     <section 

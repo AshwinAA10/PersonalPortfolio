@@ -16,6 +16,7 @@ export const CustomCursor: React.FC = () => {
     let ringY = -100
     let isHovering = false
     let isHidden = true
+    let animId = 0
 
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX
@@ -44,7 +45,7 @@ export const CustomCursor: React.FC = () => {
 
       ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) scale(${isHovering ? 1.8 : 1})`
       
-      requestAnimationFrame(updatePosition)
+      animId = requestAnimationFrame(updatePosition)
     }
 
     const onMouseOver = (e: MouseEvent) => {
@@ -96,7 +97,7 @@ export const CustomCursor: React.FC = () => {
     window.addEventListener('mouseover', onMouseOver)
     window.addEventListener('mouseout', onMouseOut)
     
-    const animId = requestAnimationFrame(updatePosition)
+    animId = requestAnimationFrame(updatePosition)
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove)
